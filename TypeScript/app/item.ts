@@ -1,6 +1,3 @@
-
-
-
 export class Item {
     name: string;
     sellIn: number;
@@ -16,16 +13,12 @@ export class Item {
         this.quality = 0
     }
 
-    public decreaseQuality() {
-        if (this.quality > 0) {
-            this.quality = this.quality - 1
-        }
+    public decreaseQuality(amount = 1) {
+        this.quality = Math.max(0, this.quality - amount)
     }
 
-    public increaseQuality() {
-        if (this.quality < 50) {
-            this.quality = this.quality + 1
-        }
+    public increaseQuality(amount = 1) {
+        this.quality = Math.min(50, this.quality + amount)
     }
 
     getRaw() {

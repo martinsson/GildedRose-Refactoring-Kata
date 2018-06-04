@@ -96,4 +96,32 @@ describe('Gilded Rose', function () {
             "quality": 0
         }, {"name": "Sulfuras, Hand of Ragnaros", "sellIn": 15, "quality": 30}])
     });
+    
+    describe('Conjured items decay twice as fast', () => {
+        it('before sellIn reaches zero', () => {
+            const gildedRose = new GildedRose([new Item('Conjured', 2, 10)])
+            gildedRose.updateQuality()
+            const items = gildedRose.updateQuality()
+            expect(items[0]).eql({
+                name: 'Conjured',
+                quality: 6,
+                sellIn: 0,
+            })
+        });
+
+        it('after sellIn reaches zero', () => {
+            const gildedRose = new GildedRose([new Item('Conjured', 0, 10)])
+            gildedRose.updateQuality()
+            const items = gildedRose.updateQuality()
+            expect(items[0]).eql({
+                name: 'Conjured',
+                quality: 2,
+                sellIn: -2,
+            })
+
+        });
+
+        
+    });
+    
 });
