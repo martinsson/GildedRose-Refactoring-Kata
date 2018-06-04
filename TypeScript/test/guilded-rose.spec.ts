@@ -1,6 +1,7 @@
 import {expect} from 'chai';
-import {Item, GildedRose} from '../app/gilded-rose';
+import {GildedRose} from '../app/gilded-rose';
 import * as util from "util";
+import {Item} from "../app/item";
 
 let agedBrie = "Aged Brie";
 let backstagePass = "Backstage passes to a TAFKAL80ETC concert";
