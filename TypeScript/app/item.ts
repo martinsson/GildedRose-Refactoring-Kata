@@ -1,3 +1,40 @@
+function updateAgedBrie(item: Item) {
+    item.increaseQuality();
+    if (item.sellIn <= 0) {
+        item.increaseQuality();
+    }
+}
+
+function updateBackstage(item) {
+    item.increaseQuality();
+    if (item.sellIn < 11) {
+        item.increaseQuality();
+    }
+    if (item.sellIn < 6) {
+        item.increaseQuality();
+    }
+    if (item.sellIn <= 0) {
+        item.setQualityToZero();
+    }
+}
+
+function updateNormal(item) {
+    item.decreaseQuality();
+    if (item.sellIn <= 0) {
+        item.decreaseQuality();
+    }
+}
+
+function updateSulfras(item) {
+
+}
+
+const updateStrategies = {
+    'Sulfuras, Hand of Ragnaros': updateSulfras,
+    'Backstage passes to a TAFKAL80ETC concert': updateBackstage,
+    'Aged Brie': updateAgedBrie,
+};
+
 export class Item {
     name: string;
     sellIn: number;
@@ -10,47 +47,30 @@ export class Item {
     }
 
     updateItem() {
-        if (this.name == 'Aged Brie') {
-            this.increaseQuality();
-            if (this.sellIn <= 0) {
-                this.increaseQuality();
-            }
-        } else if (this.name == 'Backstage passes to a TAFKAL80ETC concert') {
-            this.quality = this.quality + 1;
-            if (this.sellIn < 11) {
-                this.increaseQuality();
-            }
-            if (this.sellIn < 6) {
-                this.increaseQuality();
-            }
-            if (this.sellIn <= 0) {
-                this.setQualityToZero();
-            }
-        } else if (this.name != 'Sulfuras, Hand of Ragnaros') {
-            this.decreaseQuality();
-            if (this.sellIn <= 0) {
-                this.decreaseQuality();
-            }
-        }
+        this.updateQuality();
 
         if (this.name != 'Sulfuras, Hand of Ragnaros') {
             this.sellIn = this.sellIn - 1;
         }
-
-
     }
 
-    private setQualityToZero() {
+    private updateQuality() {
+        let item = this;
+        const updateFunction = updateStrategies[item.name] || updateNormal
+        updateFunction(item)
+    }
+
+    public setQualityToZero() {
         this.quality = 0
     }
 
-    private decreaseQuality() {
+    public decreaseQuality() {
         if (this.quality > 0) {
             this.quality = this.quality - 1
         }
     }
 
-    private increaseQuality() {
+    public increaseQuality() {
         if (this.quality < 50) {
             this.quality = this.quality + 1
         }
