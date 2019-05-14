@@ -76,11 +76,11 @@
 [Sulfuras, Hand of Ragnaros, 0, 47] = Sulfuras, Hand of Ragnaros, 0, 47 
 [foo, 4, 47] = foo, 3, 46 
 [Aged Brie, 4, 47] = Aged Brie, 3, 48 
-[Backstage passes to a TAFKAL80ETC concert, 4, 47] = Backstage passes to a TAFKAL80ETC concert, 3, 49 
+[Backstage passes to a TAFKAL80ETC concert, 4, 47] = Backstage passes to a TAFKAL80ETC concert, 3, 50 
 [Sulfuras, Hand of Ragnaros, 4, 47] = Sulfuras, Hand of Ragnaros, 4, 47 
 [foo, 5, 47] = foo, 4, 46 
 [Aged Brie, 5, 47] = Aged Brie, 4, 48 
-[Backstage passes to a TAFKAL80ETC concert, 5, 47] = Backstage passes to a TAFKAL80ETC concert, 4, 49 
+[Backstage passes to a TAFKAL80ETC concert, 5, 47] = Backstage passes to a TAFKAL80ETC concert, 4, 50 
 [Sulfuras, Hand of Ragnaros, 5, 47] = Sulfuras, Hand of Ragnaros, 5, 47 
 [foo, 6, 47] = foo, 5, 46 
 [Aged Brie, 6, 47] = Aged Brie, 5, 48 
